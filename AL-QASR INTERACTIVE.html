@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>أكاديمية القصر الذكية | The Futuristic Qasr Academy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* =========================================
+           FUTURISTIC MARINE ACADEMY - ROYAL GOLD EDITION
+           ========================================= */
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Inter:wght@400;600;800&display=swap');
+
+        :root {
+            --bg-navy: #031326;
+            --bg-navy-light: #062040;
+            --marine-blue: #073763;
+            --ocean-blue: #087CA7;
+            --neon-cyan: #38DDF2;
+            --royal-gold: #D7B45A;
+            --light-gold: #F7D98B;
+            --holo-white: #EAF7FF;
+            --danger: #ff4d4d;
+            --success: #00e676;
+            --font-ar: 'Cairo', Tahoma, Arial, sans-serif;
+            --font-ms: 'Inter', 'Segoe UI', Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-navy);
+            color: var(--holo-white);
+            font-family: var(--font-ar);
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(8, 124, 167, 0.15), transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(215, 180, 90, 0.1), transparent 25%),
+                linear-gradient(rgba(3, 19, 38, 0.95), rgba(3, 19, 38, 0.95)),
+                repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(56, 221, 242, 0.05) 40px, rgba(56, 221, 242, 0.05) 41px),
+                repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(56, 221, 242, 0.05) 40px, rgba(56, 221, 242, 0.05) 41px);
+            min-height: 100vh;
+            background-attachment: fixed;
+            transition: all 0.3s ease;
+        }
+
+        html[lang="ms"] body { font-family: var(--font-ms); }
+
+        /* Typography Enhancements */
+        .text-gold { color: var(--royal-gold); text-shadow: 0 0 10px rgba(215, 180, 90, 0.4); }
+        .text-cyan { color: var(--neon-cyan); text-shadow: 0 0 10px rgba(56, 221, 242, 0.4); }
+        h1, h2, h3 { font-weight: 900; letter-spacing: 0.5px; }
+
+        /* Glassmorphism & Cards */
+        .glass-panel {
+            background: linear-gradient(135deg, rgba(7, 55, 99, 0.6), rgba(3, 19, 38, 0.8));
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(56, 221, 242, 0.2);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), inset 0 0 20px rgba(8, 124, 167, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .interactive-card {
+            background: rgba(6, 32, 64, 0.7);
+            border: 1px solid rgba(155, 184, 206, 0.2);
+            border-radius: 12px;
+            padding: 20px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        .interactive-card:hover {
+            border-color: var(--neon-cyan);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(56, 221, 242, 0.2);
+            background: rgba(7, 55, 99, 0.9);
+        }
+        .interactive-card::before {
+            content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.1), transparent);
+            transform: skewX(-20deg); transition: 0.5s;
+        }
+        .interactive-card:hover::before { left: 150%; }
+
+        .module-completed {
+            border-color: var(--royal-gold) !important;
+            box-shadow: 0 0 15px rgba(215, 180, 90, 0.3);
+        }
+
+        /* Buttons */
+        .btn-cyber {
+            background: linear-gradient(45deg, var(--marine-blue), var(--ocean-blue));
+            border: 1px solid var(--neon-cyan);
+            color: var(--holo-white);
+            border-radius: 8px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 0 15px rgba(56, 221, 242, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .btn-cyber::after {
+            content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 0%;
+            background: var(--neon-cyan); transition: all 0.3s ease; z-index: -1; opacity: 0.2;
+        }
+        .btn-cyber:hover {
+            box-shadow: 0 0 25px rgba(56, 221, 242, 0.6);
+            transform: translateY(-2px);
+            color: white;
+        }
+        .btn-cyber:hover::after { height: 100%; }
+
+        .btn-gold {
+            background: linear-gradient(45deg, #8a6a1c, var(--royal-gold));
+            border: 1px solid var(--light-gold);
+            color: var(--bg-navy);
+            box-shadow: 0 0 20px rgba(215, 180, 90, 0.5);
+        }
+        .btn-gold:hover { box-shadow: 0 0 30px rgba(215, 180, 90, 0.8); transform: translateY(-2px); color: black;}
+        .btn-gold::after { background: white; }
+
+        /* Terminology Tags */
+        .tag-maqsur { background: rgba(56, 221, 242, 0.15); color: var(--neon-cyan); padding: 2px 8px; border-radius: 4px; border: 1px solid var(--neon-cyan); font-weight: bold; }
+        .tag-maqsur-alaih { background: rgba(215, 180, 90, 0.15); color: var(--light-gold); padding: 2px 8px; border-radius: 4px; border: 1px solid var(--royal-gold); font-weight: bold; }
+
+        /* Navigation */
+        nav {
+            background: rgba(3, 19, 38, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(215, 180, 90, 0.5);
+            position: sticky; top: 0; z-index: 100;
+        }
+        
+        /* Interactive Tabs */
+        .tab-btn { border-bottom: 2px solid transparent; transition: 0.3s; }
+        .tab-btn.active { border-bottom: 2px solid var(--neon-cyan); color: var(--neon-cyan); }
+        .tab-content { display: none; animation: fadeIn 0.4s ease; }
+        .tab-content.active { display: block; }
+
+        /* Bot */
+        #qasr-bot-container {
+            position: fixed; bottom: 20px; right: 20px; z-index: 999; display: flex; align-items: flex-end; gap: 15px; pointer-events: none;
+        }
+        html[dir="ltr"] #qasr-bot-container { right: auto; left: 20px; flex-direction: row-reverse; }
+        .bot-bubble {
+            background: rgba(7, 55, 99, 0.95); border: 1px solid var(--neon-cyan); padding: 15px; border-radius: 20px 20px 0 20px;
+            max-width: 280px; font-size: 0.95rem; opacity: 0; transform: translateY(20px); pointer-events: auto;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.5); color: white;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+        html[dir="ltr"] .bot-bubble { border-radius: 20px 20px 20px 0; }
+        .bot-bubble.show { opacity: 1; transform: translateY(0); }
+        .bot-avatar { 
+            width: 80px; height: 80px; pointer-events: auto; cursor: pointer; 
+            filter: drop-shadow(0 0 15px var(--neon-cyan)); 
+            animation: float 3s infinite ease-in-out; 
+        }
+        .bot-avatar:hover { filter: drop-shadow(0 0 25px var(--royal-gold)); transform: scale(1.1); }
+
+        /* Animations */
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes pulseGlow { 0%, 100% { box-shadow: 0 0 15px rgba(215, 180, 90, 0.4); } 50% { box-shadow: 0 0 30px rgba(215, 180, 90, 0.8); } }
+        
+        .fade-in { animation: fadeIn 0.5s forwards; }
+        .hidden-el { display: none !important; }
+
+        /* Quiz Options */
+        .option-btn {
+            display: block; width: 100%; text-align: right; background: rgba(6, 32, 64, 0.8);
+            border: 1px solid rgba(155, 184, 206, 0.3); padding: 16px; margin-bottom: 12px;
+            border-radius: 10px; cursor: pointer; color: white; font-size: 1.1rem;
+            transition: all 0.2s ease;
+        }
+        html[lang="ms"] .option-btn { text-align: left; }
+        .option-btn:hover:not(:disabled) { background: var(--marine-blue); border-color: var(--neon-cyan); padding-right: 25px;}
+        html[lang="ms"] .option-btn:hover:not(:disabled) { padding-right: 16px; padding-left: 25px;}
+        .option-btn.selected { background: var(--marine-blue); border-color: var(--royal-gold); }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-navy); }
+        ::-webkit-scrollbar-thumb { background: var(--marine-blue); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--neon-cyan); }
+    </style>
+</head>
+<body class="text-gray-100">
+
+    <!-- SPLASH SCREEN -->
+    <div id="splash-screen" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#031326] transition-opacity duration-500">
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMSIgZmlsbD0icmdiYSg1NiwgMjIxLCAyNDIsIDAuMikiLz48L3N2Zz4=')] opacity-50"></div>
+        
+        <div class="relative z-10 flex flex-col items-center text-center px-4 w-full max-w-2xl">
+            <!-- Credit Box -->
+            <div class="mb-10 px-8 py-3 border-2 border-[var(--royal-gold)] rounded-xl backdrop-blur-sm" style="animation: pulseGlow 2s infinite;">
+                <h3 class="text-gold text-lg md:text-xl font-bold tracking-wider m-0">CREDIT TO DR. TAUFIQ</h3>
+                <p class="text-cyan text-sm md:text-md mt-1 tracking-widest">FKI, UNISZA</p>
+            </div>
+
+            <!-- Bot Graphic -->
+            <svg class="w-32 h-32 md:w-40 md:h-40 mb-8" viewBox="0 0 100 100" style="filter: drop-shadow(0 0 20px var(--neon-cyan)); animation: float 3s infinite ease-in-out;">
+                <polygon points="20,30 80,30 90,80 10,80" fill="var(--marine-blue)" stroke="var(--neon-cyan)" stroke-width="2"/>
+                <line x1="50" y1="30" x2="50" y2="10" stroke="var(--royal-gold)" stroke-width="4"/>
+                <circle cx="50" cy="10" r="5" fill="var(--neon-cyan)"/>
+                <rect x="25" y="45" width="50" height="15" rx="5" fill="var(--bg-navy)"/>
+                <circle cx="35" cy="52.5" r="4" fill="var(--neon-cyan)"/>
+                <circle cx="65" cy="52.5" r="4" fill="var(--neon-cyan)"/>
+                <line x1="40" y1="70" x2="60" y2="70" stroke="var(--royal-gold)" stroke-width="2"/>
+            </svg>
+
+            <h1 class="text-4xl md:text-6xl font-black text-white mb-4 leading-tight text-gold" style="text-shadow: 0 0 20px rgba(215,180,90,0.5);">أكاديمية القصر الذكية</h1>
+            <h2 class="text-xl md:text-2xl text-cyan mb-10">من الفهم إلى التطبيق والإبداع البلاغي</h2>
+            
+            <div class="flex flex-col sm:flex-row gap-4 w-full justify-center">
+                <button class="btn-cyber btn-gold px-8 py-4 text-lg md:text-xl w-full sm:w-auto" onclick="app.startApp()">🚀 ابدأ الرحلة | MULAKAN</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- NAVIGATION BAR -->
+    <nav id="navbar" class="hidden-el px-4 py-3 flex justify-between items-center shadow-lg">
+        <div class="flex items-center gap-3 cursor-pointer" onclick="app.showDashboard()">
+            <div class="w-10 h-10 rounded-full border border-cyan-400 flex items-center justify-center bg-blue-900 shadow-[0_0_10px_rgba(56,221,242,0.5)]">
+                <span class="text-xl">🕌</span>
+            </div>
+            <div>
+                <h3 class="text-gold font-bold text-lg m-0 leading-tight">أكاديمية القصر</h3>
+                <span id="nav-level" class="text-cyan text-xs">المستوى: المبتدئ</span>
+            </div>
+        </div>
+        <div class="flex items-center gap-3">
+            <span id="nav-xp" class="text-gold font-bold hidden sm:inline-block bg-[#062040] px-3 py-1 rounded-full border border-[var(--royal-gold)]">⭐ 0 XP</span>
+            <select id="lang-selector" class="bg-[#062040] text-white border border-cyan-400 rounded px-2 py-1 outline-none text-sm cursor-pointer" onchange="app.changeLanguage(this.value)">
+                <option value="ar">العربية</option>
+                <option value="ms">B. Melayu</option>
+            </select>
+        </div>
+    </nav>
+
+    <!-- MAIN APP CONTAINER -->
+    <div id="main-container" class="hidden-el container mx-auto px-4 py-8 max-w-5xl pb-32">
+
+        <!-- 1. DASHBOARD VIEW -->
+        <div id="dashboard-view" class="fade-in">
+            <div class="glass-panel text-center mb-8 p-6 md:p-10">
+                <h1 id="dash-title" class="text-3xl md:text-4xl font-bold text-gold mb-3">خريطة التعلم الذكية</h1>
+                <p id="dash-desc" class="text-cyan text-lg mb-6">استكشف وحدات القصر واصقل مهاراتك البلاغية بذكاء وانسيابية</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 bg-[rgba(3,19,38,0.6)] p-5 rounded-xl border border-gray-700">
+                    <div class="text-right">
+                        <p class="text-gray-400 text-sm mb-1" id="dash-prog-lbl">التقدم العام</p>
+                        <div class="w-full bg-gray-700 rounded-full h-4 mb-2 overflow-hidden border border-gray-600">
+                            <div id="dash-prog-bar" class="bg-gradient-to-r from-cyan-500 to-blue-500 h-4 rounded-full transition-all duration-1000" style="width: 0%"></div>
+                        </div>
+                        <p class="text-gold font-bold" id="dash-stats">الوحدات: 0/6</p>
+                    </div>
+                    <div class="flex flex-col justify-center gap-3">
+                        <button class="btn-cyber w-full py-2" onclick="app.openTrainingHub()">🎯 مركز التدريب الشامل | Hab Latihan</button>
+                        <button class="btn-cyber btn-gold w-full py-2" onclick="app.startExam()">🏆 الاختبار النهائي | Ujian Akhir</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modules Grid -->
+            <div id="module-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Injected via JS -->
+            </div>
+        </div>
+
+        <!-- 2. MODULE VIEW (Content Mampat & Padat with Smooth Mobility) -->
+        <div id="module-view" class="fade-in hidden-el">
+            <div class="glass-panel p-6 md:p-8">
+                <div class="flex justify-between items-start border-b border-gray-700 pb-4 mb-6">
+                    <h2 id="mod-title" class="text-2xl md:text-3xl font-bold text-gold">العنوان</h2>
+                    <button class="text-gray-400 hover:text-white bg-gray-800 rounded-full p-2" onclick="app.showDashboard()">✕</button>
+                </div>
+                
+                <!-- Dynamic Content Area -->
+                <div id="mod-content" class="text-lg leading-relaxed space-y-6"></div>
+                
+                <!-- Module Navigation (Mobility) -->
+                <div class="flex justify-between items-center mt-10 pt-6 border-t border-gray-700">
+                    <button id="btn-mod-prev" class="btn-cyber px-4 py-2" onclick="app.navigateModule(-1)">السابق</button>
+                    <button class="text-cyan underline text-sm hover:text-gold" onclick="app.showDashboard()" id="btn-mod-home">العودة للخريطة</button>
+                    <button id="btn-mod-next" class="btn-cyber px-4 py-2" onclick="app.navigateModule(1)">التالي</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. TRAINING HUB VIEW -->
+        <div id="training-hub-view" class="fade-in hidden-el">
+            <div class="glass-panel p-6 text-center mb-6 border-[var(--royal-gold)] border-2">
+                <h2 id="hub-title" class="text-3xl font-bold text-gold mb-2">مركز التدريب الشامل</h2>
+                <p id="hub-desc" class="text-cyan">Pusat Latihan Komprehensif: Uji pemahaman anda merangkumi semua modul tanpa paparan markah segera.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="interactive-card flex flex-col items-center justify-center text-center p-8" onclick="app.startPractice('mcq')">
+                    <span class="text-5xl mb-4 block">📝</span>
+                    <h3 class="text-xl font-bold text-white mb-2" id="hub-btn-1">تدريب الخيارات المتعددة الشامل</h3>
+                    <p class="text-gray-400 text-sm">Latihan Aneka Pilihan merangkumi semua modul (10 Soalan).</p>
+                </div>
+                <div class="interactive-card flex flex-col items-center justify-center text-center p-8" onclick="app.startPractice('tf')">
+                    <span class="text-5xl mb-4 block">⚖️</span>
+                    <h3 class="text-xl font-bold text-white mb-2" id="hub-btn-2">تحدي الصح والخطأ الشامل</h3>
+                    <p class="text-gray-400 text-sm">Cabaran Benar/Salah untuk menguji ketepatan fakta (10 Soalan).</p>
+                </div>
+            </div>
+            <div class="text-center mt-8">
+                <button class="text-gray-400 hover:text-white" onclick="app.showDashboard()" id="hub-btn-back">العودة للخريطة | Kembali</button>
+            </div>
+        </div>
+
+        <!-- 4. QUIZ/PRACTICE VIEW (No Instant Feedback) -->
+        <div id="quiz-view" class="fade-in hidden-el">
+            <div class="glass-panel p-6 md:p-8">
+                <div class="flex justify-between items-center mb-6 text-sm">
+                    <span class="text-cyan font-bold bg-blue-900 px-3 py-1 rounded-full border border-cyan-500" id="quiz-progress">السؤال 1 / 10</span>
+                    <button class="text-gray-400 hover:text-white" onclick="app.openTrainingHub()" id="btn-exit-quiz">إنهاء | Tamat</button>
+                </div>
+                
+                <h3 id="quiz-q" class="text-xl md:text-2xl font-bold mb-8 leading-relaxed text-white"></h3>
+                
+                <div id="quiz-options" class="space-y-3"></div>
+                
+                <div class="flex justify-between items-center mt-10">
+                    <button class="btn-cyber px-4 py-2" id="btn-quiz-prev" onclick="app.navQuiz(-1)">السابق</button>
+                    <button class="btn-cyber btn-gold px-6 py-2" id="btn-quiz-next" onclick="app.navQuiz(1)">التالي</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. EXAM VIEW -->
+        <div id="exam-view" class="fade-in hidden-el">
+            <div class="glass-panel p-6 border-red-500 border-t-4">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-xl font-bold text-danger" id="exam-header">الاختبار النهائي الشامل</h2>
+                    <div class="text-2xl text-danger font-black font-mono bg-red-900/30 px-4 py-1 rounded border border-red-500" id="exam-timer">20:00</div>
+                </div>
+                <div class="w-full bg-gray-700 h-2 rounded mb-6"><div id="exam-prog-bar" class="bg-gold h-2 rounded" style="width: 5%; background-color: var(--royal-gold);"></div></div>
+                
+                <h3 id="exam-q" class="text-xl font-bold mb-8 leading-relaxed"></h3>
+                <div id="exam-options" class="space-y-3"></div>
+                
+                <div class="flex justify-between items-center mt-10">
+                    <button class="btn-cyber px-4 py-2 bg-gray-700 border-gray-500 text-gray-300" id="btn-exam-prev" onclick="app.navExam(-1)">السابق</button>
+                    <button class="btn-cyber btn-gold px-6 py-2" id="btn-exam-submit" onclick="app.submitExam()">تسليم | Hantar</button>
+                    <button class="btn-cyber px-4 py-2" id="btn-exam-next" onclick="app.navExam(1)">التالي</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 6. REPORT VIEW (Detailed Performance Summary) -->
+        <div id="report-view" class="fade-in hidden-el">
+            <div class="bg-white text-black p-8 rounded-2xl border-4 border-[var(--royal-gold)] shadow-2xl relative overflow-hidden">
+                <div class="absolute inset-0 flex items-center justify-center opacity-5 pointer-events-none text-9xl">🕌</div>
+                
+                <div class="text-center border-b-2 border-gray-200 pb-6 mb-6">
+                    <h1 class="text-3xl font-black text-[var(--marine-blue)] mb-2" id="rep-title">تقرير الأداء</h1>
+                    <h3 class="text-[var(--ocean-blue)] font-bold text-xl">أكاديمية القصر الذكية</h3>
+                    <p class="text-gray-500 mt-2">CREDIT TO DR. TAUFIQ | FKI, UNISZA</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                    <div class="flex flex-col items-center justify-center p-6 bg-gray-50 rounded-xl border border-gray-200">
+                        <p class="text-gray-500 font-bold mb-2 uppercase tracking-wide" id="rep-score-lbl">النتيجة النهائية</p>
+                        <h1 class="text-6xl font-black m-0 leading-none" id="rep-score" style="color: var(--danger)">0%</h1>
+                    </div>
+                    <div class="flex flex-col justify-center gap-3 text-lg font-bold text-gray-700">
+                        <div class="flex justify-between border-b pb-2">
+                            <span id="rep-lbl-lvl">المستوى:</span>
+                            <span id="rep-level" class="text-[var(--marine-blue)]">المبتدئ</span>
+                        </div>
+                        <div class="flex justify-between border-b pb-2">
+                            <span id="rep-lbl-correct">الإجابات الصحيحة:</span>
+                            <span id="rep-correct" class="text-green-600">0/10</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span id="rep-lbl-xp">نقاط الخبرة (XP):</span>
+                            <span id="rep-xp-gain" class="text-orange-500">+0 XP</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <h3 class="font-bold text-lg mb-3 text-[var(--marine-blue)] border-b-2 border-[var(--royal-gold)] inline-block" id="rep-details-lbl">تفاصيل الإجابات</h3>
+                    <div id="rep-details" class="max-h-80 overflow-y-auto pr-2 space-y-4 text-sm leading-relaxed" style="direction: inherit;"></div>
+                </div>
+
+                <div class="flex gap-4 justify-center mt-8 print:hidden">
+                    <button class="bg-[var(--royal-gold)] text-black font-bold py-3 px-6 rounded-lg shadow hover:bg-yellow-500 transition" onclick="window.print()" id="btn-print">🖨️ طباعة | Cetak</button>
+                    <button class="bg-gray-800 text-white font-bold py-3 px-6 rounded-lg shadow hover:bg-black transition" onclick="app.showDashboard()" id="btn-back">العودة | Kembali</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- QASR BOT -->
+    <div id="qasr-bot-container">
+        <div class="bot-bubble" id="bot-msg">مرحباً بك! أنا قَصْر بوت.</div>
+        <svg class="bot-avatar" onclick="app.botGreet(true)" viewBox="0 0 100 100">
+            <polygon points="20,30 80,30 90,80 10,80" fill="var(--marine-blue)" stroke="var(--neon-cyan)" stroke-width="2"/>
+            <line x1="50" y1="30" x2="50" y2="10" stroke="var(--royal-gold)" stroke-width="4"/>
+            <circle cx="50" cy="10" r="5" fill="var(--neon-cyan)"/>
+            <rect x="25" y="45" width="50" height="15" rx="5" fill="var(--bg-navy)"/>
+            <circle cx="35" cy="52.5" r="4" fill="var(--neon-cyan)"/>
+            <circle cx="65" cy="52.5" r="4" fill="var(--neon-cyan)"/>
+            <line x1="40" y1="70" x2="60" y2="70" stroke="var(--royal-gold)" stroke-width="2"/>
+        </svg>
+    </div>
+
+    <script>
+        // ==========================================
+        // 1. DATA & DICTIONARY
+        // ==========================================
+        const dict = {
+            ar: {
+                level0: "المبتدئ", level1: "المتدرّب", level2: "المتقدّم", level3: "خبير البلاغة",
+                dashTitle: "خريطة التعلم الذكية", dashDesc: "استكشف وحدات القصر واصقل مهاراتك البلاغية بذكاء وانسيابية",
+                stats: "الوحدات المكتملة: {c}/6", progLbl: "التقدم العام",
+                btnExam: "🏆 الاختبار النهائي", btnTrainHub: "🎯 مركز التدريب الشامل",
+                btnExit: "إنهاء", btnNext: "التالي", btnPrev: "السابق", btnHome: "العودة للخريطة",
+                quizProg: "السؤال {i} من {t}", btnSubmit: "تسليم الإجابات النهائية",
+                hubTitle: "مركز التدريب الشامل", hubDesc: "اختر نوع التدريب لاختبار فهمك الشامل دون إظهار النتيجة إلا في النهاية",
+                hub1: "تدريب الخيارات المتعددة الشامل", hub2: "تحدي الصح والخطأ الشامل",
+                repTitle: "تقرير الأداء | أكاديمية القصر", repScore: "النتيجة النهائية",
+                btnPrint: "🖨️ طباعة", btnBack: "العودة",
+                lblLvl: "المستوى:", lblCorrect: "الإجابات الصحيحة:", lblXp: "نقاط الخبرة المكتسبة:", lblDetails: "تفاصيل الإجابات",
+                ansYours: "إجابتك", ansCorrect: "الإجابة الصحيحة", notAns: "لم يُجب",
+                botMsgs: ["استمر في التقدم والانسيابية!", "تذكر: القصر تخصيص أمر بأمر.", "المقصور هو ما نحبسه.", "طرق القصر أربعة مشهورة.", "أنا هنا لمساعدتك!"]
+            },
+            ms: {
+                level0: "Pemula", level1: "Pelatih", level2: "Lanjutan", level3: "Pakar Balaghah",
+                dashTitle: "Peta Pembelajaran Pintar", dashDesc: "Terokai modul Qasr & asah kemahiran balaghah anda",
+                stats: "Modul Selesai: {c}/6", progLbl: "Kemajuan Keseluruhan",
+                btnExam: "🏆 Ujian Akhir", btnTrainHub: "🎯 Hab Latihan Komprehensif",
+                btnExit: "Tamat", btnNext: "Seterusnya", btnPrev: "Sebelumnya", btnHome: "Kembali ke Peta",
+                quizProg: "Soalan {i} dpd {t}", btnSubmit: "Hantar Semua Jawapan",
+                hubTitle: "Hab Latihan Komprehensif", hubDesc: "Pilih jenis latihan untuk menguji kefahaman (Markah dipaparkan di akhir)",
+                hub1: "Latihan Aneka Pilihan (MCQ)", hub2: "Cabaran Benar / Salah",
+                repTitle: "Laporan Prestasi | Akademi Qasr", repScore: "Markah Keseluruhan",
+                btnPrint: "🖨️ Cetak", btnBack: "Kembali",
+                lblLvl: "Tahap:", lblCorrect: "Jawapan Betul:", lblXp: "XP Diperoleh:", lblDetails: "Perincian Jawapan",
+                ansYours: "Jawapan Anda", ansCorrect: "Jawapan Sebenar", notAns: "Tidak dijawab",
+                botMsgs: ["Teruskan usaha cemerlang!", "Ingat: Qasr ialah mengkhususkan sesuatu.", "Maqsur ialah benda yg dikhususkan.", "Terdapat 4 kaedah utama Qasr.", "Saya sedia membantu!"]
+            }
+        };
+
+        // Comprehensive Modules (Compressed & Rich)
+        const modules = [
+            {
+                id: 1, 
+                title_ar: "الوحدة 1: مفهوم القصر ومصطلحاته الأساسية", 
+                title_ms: "Modul 1: Konsep Qasr & Istilah Asas",
+                content_ar: `
+                    <div class="space-y-4">
+                        <p class="text-xl"><strong>القصر لغة:</strong> الحبس.</p>
+                        <p class="text-xl"><strong>القصر اصطلاحاً:</strong> تخصيص أمر بأمر بطريق مخصوص.</p>
+                        
+                        <div class="bg-[rgba(6,32,64,0.6)] p-5 rounded-lg border border-cyan-900 mt-4">
+                            <h3 class="text-gold font-bold text-lg mb-3">أركان القصر</h3>
+                            <ul class="list-disc list-inside mt-2 space-y-2">
+                                <li><span class="tag-maqsur">المقصور</span>: هو الشيء الذي نخصصه ونحبسه.</li>
+                                <li><span class="tag-maqsur-alaih">المقصور عليه</span>: هو الشيء الذي نحبس فيه المقصور.</li>
+                            </ul>
+                        </div>
+
+                        <div class="p-4 border-l-4 border-gold bg-blue-900/30 mt-4">
+                            <p class="text-gray-300 text-sm mb-1">مثال تطبيقي:</p>
+                            <p class="text-2xl font-bold font-arabic mb-2 text-white">ما الجاحظُ إلا كاتبٌ</p>
+                            <div class="mt-2 flex gap-4">
+                                <div class="bg-gray-800 p-2 rounded w-1/2 text-center border-t-2 border-cyan-400">
+                                    <span class="text-cyan text-sm block">المقصور</span>
+                                    <span class="font-bold text-lg text-white">الجاحظ</span>
+                                </div>
+                                <div class="bg-gray-800 p-2 rounded w-1/2 text-center border-t-2 border-gold">
+                                    <span class="text-gold text-sm block">المقصور عليه</span>
+                                    <span class="font-bold text-lg text-white">كاتب</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>`,
+                content_ms: `
+                    <div class="space-y-4">
+                        <p class="text-xl"><strong>Bahasa:</strong> Menahan (Al-Habs).</p>
+                        <p class="text-xl"><strong>Istilah:</strong> Mengkhususkan sesuatu perkara kepada perkara lain dengan cara khusus.</p>
+                        
+                        <div class="bg-[rgba(6,32,64,0.6)] p-5 rounded-lg border border-cyan-900 mt-4">
+                            <h3 class="text-gold font-bold text-lg mb-3">Rukun Qasr</h3>
+                            <ul class="list-disc list-inside mt-2 space-y-2">
+                                <li><span class="tag-maqsur">Al-Maqsur</span>: Perkara yang dibataskan.</li>
+                                <li><span class="tag-maqsur-alaih">Al-Maqsur 'Alayh</span>: Tempat batasan.</li>
+                            </ul>
+                        </div>
+
+                        <div class="p-4 border-l-4 border-gold bg-blue-900/30 mt-4">
+                            <p class="text-gray-300 text-sm mb-1">Contoh:</p>
+                            <p class="text-2xl font-bold mb-2 text-white" dir="rtl">ما الجاحظُ إلا كاتبٌ</p>
+                            <div class="mt-2 flex gap-4">
+                                <div class="bg-gray-800 p-2 rounded w-1/2 text-center border-t-2 border-cyan-400">
+                                    <span class="text-cyan text-sm block">Maqsur</span>
+                                    <span class="font-bold text-lg text-white">Al-Jahiz</span>
+                                </div>
+                                <div class="bg-gray-800 p-2 rounded w-1/2 text-center border-t-2 border-gold">
+                                    <span class="text-gold text-sm block">Maqsur 'Alayh</span>
+                                    <span class="font-bold text-lg text-white">Katib</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>`
+            },
+            {
+                id: 2, 
+                title_ar: "الوحدة 2: القصر الحقيقي والقصر الإضافي", 
+                title_ms: "Modul 2: Qasr Hakiki & Qasr Idhafi",
+                content_ar: `
+                    <p class="mb-4">ينقسم القصر باعتبار الحقيقة والواقع إلى قسمين رئيسيين:</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-[rgba(7,55,99,0.5)] p-5 rounded-xl border border-cyan-500/50">
+                            <h3 class="text-cyan font-bold text-xl mb-3 border-b border-cyan-900 pb-2">1. القصر الحقيقي</h3>
+                            <p class="text-sm mb-3">أن يختص المقصور بالمقصور عليه بحسب الحقيقة والواقع.</p>
+                            <div class="bg-black/30 p-3 rounded text-center">
+                                <p class="text-xl font-bold text-white">لا إلهَ إلا الله</p>
+                            </div>
+                        </div>
+                        <div class="bg-[rgba(7,55,99,0.5)] p-5 rounded-xl border border-gold/50">
+                            <h3 class="text-gold font-bold text-xl mb-3 border-b border-yellow-900 pb-2">2. القصر الإضافي</h3>
+                            <p class="text-sm mb-3">أن يختص المقصور بالمقصور عليه بحسب الإضافة إلى شيء معين.</p>
+                            <div class="bg-black/30 p-3 rounded text-center">
+                                <p class="text-xl font-bold text-white">وما محمدٌ إلا رسول</p>
+                            </div>
+                        </div>
+                    </div>`,
+                content_ms: `
+                    <p class="mb-4">Pembahagian Qasr berdasarkan hakikat & realiti:</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-[rgba(7,55,99,0.5)] p-5 rounded-xl border border-cyan-500/50">
+                            <h3 class="text-cyan font-bold text-xl mb-3 border-b border-cyan-900 pb-2">1. Qasr Hakiki</h3>
+                            <p class="text-sm mb-3">Batasan berdasarkan hakikat dan realiti mutlak.</p>
+                            <div class="bg-black/30 p-3 rounded text-center">
+                                <p class="text-xl font-bold text-white" dir="rtl">لا إلهَ إلا الله</p>
+                            </div>
+                        </div>
+                        <div class="bg-[rgba(7,55,99,0.5)] p-5 rounded-xl border border-gold/50">
+                            <h3 class="text-gold font-bold text-xl mb-3 border-b border-yellow-900 pb-2">2. Qasr Idhafi</h3>
+                            <p class="text-sm mb-3">Batasan secara relatif berbanding perkara tertentu.</p>
+                            <div class="bg-black/30 p-3 rounded text-center">
+                                <p class="text-xl font-bold text-white" dir="rtl">وما محمدٌ إلا رسول</p>
+                            </div>
+                        </div>
+                    </div>`
+            },
+            {
+                id: 3, 
+                title_ar: "الوحدة 3: أنواع القصر الإضافي (حالة المخاطب)", 
+                title_ms: "Modul 3: Qasr Idhafi (Keadaan Mukhatab)",
+                content_ar: `
+                    <p class="mb-4">ينقسم القصر الإضافي بناءً على حالة المخاطب واعتقاده إلى ثلاثة أقسام:</p>
+                    <div class="space-y-4">
+                        <div class="bg-gray-800/50 p-4 rounded-lg border-l-4 border-cyan-400">
+                            <h4 class="text-cyan font-bold text-lg">1. قصر الإفراد</h4>
+                            <p class="text-sm text-gray-300">يخاطب به من يعتقد <strong>الشركة</strong> (اجتماع صفتين).</p>
+                        </div>
+                        <div class="bg-gray-800/50 p-4 rounded-lg border-l-4 border-gold">
+                            <h4 class="text-gold font-bold text-lg">2. قصر القلب</h4>
+                            <p class="text-sm text-gray-300">يخاطب به من يعتقد <strong>عكس الواقع</strong>.</p>
+                        </div>
+                        <div class="bg-gray-800/50 p-4 rounded-lg border-l-4 border-green-500">
+                            <h4 class="text-green-400 font-bold text-lg">3. قصر التعيين</h4>
+                            <p class="text-sm text-gray-300">يخاطب به من هو <strong>متردد وشاك</strong> بين أمرين.</p>
+                        </div>
+                    </div>`,
+                content_ms: `
+                    <p class="mb-4">Qasr Idhafi dibahagikan mengikut kepercayaan pendengar:</p>
+                    <div class="space-y-4">
+                        <div class="bg-gray-800/50 p-4 rounded-lg border-l-4 border-cyan-400">
+                            <h4 class="text-cyan font-bold text-lg">1. Qasr Al-Ifrad</h4>
+                            <p class="text-sm text-gray-300">Untuk pendengar yang menyangka <strong>wujud perkongsian</strong>.</p>
+                        </div>
+                        <div class="bg-gray-800/50 p-4 rounded-lg border-l-4 border-gold">
+                            <h4 class="text-gold font-bold text-lg">2. Qasr Al-Qalb</h4>
+                            <p class="text-sm text-gray-300">Untuk pendengar yang mempercayai <strong>sebaliknya</strong>.</p>
+                        </div>
+                        <div class="bg-gray-800/50 p-4 rounded-lg border-l-4 border-green-500">
+                            <h4 class="text-green-400 font-bold text-lg">3. Qasr At-Ta'yin</h4>
+                            <p class="text-sm text-gray-300">Untuk pendengar yang <strong>ragu-ragu</strong> antara dua kemungkinan.</p>
+                        </div>
+                    </div>`
+            },
+            {
+                id: 4, 
+                title_ar: "الوحدة 4: تقسيم القصر باعتبار طرفيه", 
+                title_ms: "Modul 4: Pembahagian (Mawsuf & Sifah)",
+                content_ar: `
+                    <p class="mb-4">ينقسم القصر باعتبار طرفيه إلى قسمين:</p>
+                    <div class="grid grid-cols-1 gap-4">
+                        <div class="bg-[rgba(6,32,64,0.8)] p-4 rounded-xl border border-cyan-400">
+                            <h3 class="text-lg font-bold text-cyan mb-1">1. قصر موصوف على صفة</h3>
+                            <p class="text-sm text-gray-300">مثل: <span class="text-gold">ما الجاحظُ إلا كاتبٌ</span> (الموصوف: الجاحظ مقصور على صفة الكتابة).</p>
+                        </div>
+                        <div class="bg-[rgba(6,32,64,0.8)] p-4 rounded-xl border border-gold">
+                            <h3 class="text-lg font-bold text-gold mb-1">2. قصر صفة على موصوف</h3>
+                            <p class="text-sm text-gray-300">مثل: <span class="text-cyan">إنما الشاعرُ البحتريُّ</span> (الصفة: الشاعر مقصورة على الموصوف البحتري).</p>
+                        </div>
+                    </div>`,
+                content_ms: `
+                    <p class="mb-4">Pembahagian berdasarkan struktur subjek & sifat:</p>
+                    <div class="grid grid-cols-1 gap-4">
+                        <div class="bg-[rgba(6,32,64,0.8)] p-4 rounded-xl border border-cyan-400">
+                            <h3 class="text-lg font-bold text-cyan mb-1">1. Qasr Mawsuf 'ala Sifah</h3>
+                            <p class="text-sm text-gray-300" dir="rtl">ما الجاحظُ إلا كاتبٌ</p>
+                        </div>
+                        <div class="bg-[rgba(6,32,64,0.8)] p-4 rounded-xl border border-gold">
+                            <h3 class="text-lg font-bold text-gold mb-1">2. Qasr Sifah 'ala Mawsuf</h3>
+                            <p class="text-sm text-gray-300" dir="rtl">إنما الشاعرُ البحتريُّ</p>
+                        </div>
+                    </div>`
+            },
+            {
+                id: 5, 
+                title_ar: "الوحدة 5: طرق القصر عند البلاغيين", 
+                title_ms: "Modul 5: Kaedah-kaedah Qasr",
+                content_ar: `
+                    <p class="mb-4 text-cyan">للقصر طرق أربعة رئيسية:</p>
+                    <ul class="list-disc list-inside space-y-2 text-base">
+                        <li><strong>النفي والاستثناء:</strong> مثل (ما محمد إلا رسول).</li>
+                        <li><strong>إنما:</strong> مثل (إنما يخشى الله العلماء).</li>
+                        <li><strong>العطف (لا، بل، لكن):</strong> مثل (الأرض متحركة لا ثابتة).</li>
+                        <li><strong>تقديم ما حقه التأخير:</strong> مثل (إياك نعبد).</li>
+                    </ul>`,
+                content_ms: `
+                    <p class="mb-4 text-cyan">Empat kaedah utama pembentukan Qasr:</p>
+                    <ul class="list-disc list-inside space-y-2 text-base">
+                        <li><strong>Nafi & Istithna':</strong> Cth: (Ma Muhammad illa Rasul).</li>
+                        <li><strong>Innama:</strong> Cth: (Innama yakhsyallaha al-ulama').</li>
+                        <li><strong>'Atf (La, Bal, Lakin):</strong> Cth: (Al-ard mutaharrikah la thabithah).</li>
+                        <li><strong>Taqdim:</strong> Cth: (Iyyaka na'budu).</li>
+                    </ul>`
+            },
+            {
+                id: 6, 
+                title_ar: "الوحدة 6: أسرار القصر وخصائصه البلاغية", 
+                title_ms: "Modul 6: Rahsia & Keistimewaan Balaghah",
+                content_ar: `
+                    <p class="mb-4">من أبرز الأغراض البلاغية لاستخدام أسلوب القصر:</p>
+                    <div class="space-y-3">
+                        <div class="bg-blue-950/40 p-3 rounded border border-cyan-500/30">
+                            <strong>1. الإيجاز:</strong> توصيل المعنى الكثير بلفظ قليل ومختصر.
+                        </div>
+                        <div class="bg-blue-950/40 p-3 rounded border border-gold/30">
+                            <strong>2. التوكيد:</strong> تقرير المعنى في الذهن وقطع الشك.
+                        </div>
+                        <div class="bg-blue-950/40 p-3 rounded border border-green-500/30">
+                            <strong>3. مراعاة حال المخاطب:</strong> استمالة المتلقي وتصحيح اعتقاده.
+                        </div>
+                    </div>`,
+                content_ms: `
+                    <p class="mb-4">Antara rahsia balaghah penggunaan Qasr:</p>
+                    <div class="space-y-3">
+                        <div class="bg-blue-950/40 p-3 rounded border border-cyan-500/30">
+                            <strong>1. Al-Ijaz:</strong> Menyampaikan makna yang banyak secara ringkas.
+                        </div>
+                        <div class="bg-blue-950/40 p-3 rounded border border-gold/30">
+                            <strong>2. At-Tawkid:</strong> Penegasan kukuh dalam minda pendengar.
+                        </div>
+                        <div class="bg-blue-950/40 p-3 rounded border border-green-500/30">
+                            <strong>3. Menyantuni Mukhatab:</strong> Membetulkan fahaman dan menolak keraguan.
+                        </div>
+                    </div>`
+            }
+        ];
+
+        // Question Bank for Training Hub & Exams (No instant answers)
+        const questions = [
+            { type:'mcq', mod: 'mcq', q_ar:"ما هو تعريف القصر اصطلاحاً؟", q_ms:"Apakah definisi Qasr dari segi istilah?", opts_ar:["تخصيص أمر بأمر بطريق مخصوص", "إطالة الكلام والمبالغة", "تغيير ترتيب الجملة وتزيينها"], opts_ms:["Mengkhususkan sesuatu kpd sesuatu dgn cara khusus", "Memanjangkan ayat", "Menukar susunan ayat"], ans:0 },
+            { type:'mcq', mod: 'mcq', q_ar:"في (ما شوقي إلا شاعر)، أين المقصور عليه؟", q_ms:"Dalam (ما شوقي إلا شاعر), di manakah Maqsur 'Alayh?", opts_ar:["شوقي", "شاعر", "إلا"], opts_ms:["Syawqi", "Penyair", "Illa"], ans:1 },
+            { type:'mcq', mod: 'mcq', q_ar:"ما نوع القصر في (لا إله إلا الله) بحسب الواقع؟", q_ms:"Apakah jenis Qasr dalam (لا إله إلا الله) berdasarkan realiti?", opts_ar:["قصر إضافي", "قصر حقيقي", "قصر موصوف"], opts_ms:["Qasr Idhafi", "Qasr Hakiki", "Qasr Mawsuf"], ans:1 },
+            { type:'mcq', mod: 'mcq', q_ar:"(وما محمد إلا رسول) يعتبر قصراً:", q_ms:"(وما محمد إلا رسول) dianggap sebagai Qasr:", opts_ar:["إضافياً", "حقيقياً", "إفرادياً مطلقا"], opts_ms:["Idhafi", "Hakiki", "Ifrad Mutlak"], ans:0 },
+            { type:'mcq', mod: 'mcq', q_ar:"إذا كان المخاطب يعتقد أن علياً كاتب وشاعر معاً، فقلت: (إنما علي كاتب). فهذا قصر:", q_ms:"Jika mukhatab menyangka Ali itu penulis dan penyair sekaligus, lalu anda berkata (إنما علي كاتب). Ini Qasr:", opts_ar:["قلب", "إفراد", "تعيين"], opts_ms:["Qalb", "Ifrad", "Ta'yin"], ans:1 },
+            { type:'mcq', mod: 'mcq', q_ar:"قصر يخاطب به من يعتقد عكس الواقع:", q_ms:"Qasr untuk mereka yang mempercayai sebaliknya:", opts_ar:["قصر الإفراد", "قصر التعيين", "قصر القلب"], opts_ms:["Qasr Al-Ifrad", "Qasr At-Ta'yin", "Qasr Al-Qalb"], ans:2 },
+            { type:'mcq', mod: 'mcq', q_ar:"ما نوع القصر في (ما الجاحظ إلا كاتب)؟", q_ms:"Apakah jenis Qasr: (ما الجاحظ إلا كاتب)?", opts_ar:["قصر موصوف على صفة", "قصر صفة على موصوف", "قصر تعيين"], opts_ms:["Mawsuf 'ala Sifah", "Sifah 'ala Mawsuf", "Qasr Ta'yin"], ans:0 },
+            { type:'mcq', mod: 'mcq', q_ar:"ما نوع القصر في (إنما الشاعر البحتري)؟", q_ms:"Apakah jenis Qasr: (إنما الشاعر البحتري)?", opts_ar:["قصر موصوف على صفة", "قصر صفة على موصوف", "قصر قلب"], opts_ms:["Mawsuf 'ala Sifah", "Sifah 'ala Mawsuf", "Qasr Qalb"], ans:1 },
+            { type:'mcq', mod: 'mcq', q_ar:"طريقة القصر في (الأرض متحركة لا ثابتة):", q_ms:"Kaedah Qasr dalam (الأرض متحركة لا ثابتة):", opts_ar:["إنما", "العطف بـ (لا)", "التقديم"], opts_ms:["Innama", "'Atf dengan (La)", "Taqdim"], ans:1 },
+            { type:'mcq', mod: 'mcq', q_ar:"أين يقع المقصور عليه في طريقة (إنما)؟", q_ms:"Di manakah terletaknya Maqsur 'Alayh dalam kaedah (إنما)?", opts_ar:["مؤخر وجوباً", "مقدم وجوباً", "بين المبتدأ والخبر"], opts_ms:["Akhir secara wajib", "Awal secara wajib", "Antara Mubtada' & Khabar"], ans:0 },
+            // TF items
+            { type:'tf', mod: 'tf', q_ar:"القصر لغة يعني الإطلاق والحرية.", q_ms:"Qasr dari segi bahasa bermaksud bebas.", opts_ar:["صح (Benar)", "خطأ (Salah)"], opts_ms:["Benar", "Salah"], ans:1 },
+            { type:'tf', mod: 'tf', q_ar:"القصر الإضافي يختص فيه المقصور بالمقصور عليه بحسب الإضافة.", q_ms:"Qasr Idhafi membataskan Maqsur kpd Maqsur 'Alayh secara relatif.", opts_ar:["صح (Benar)", "خطأ (Salah)"], opts_ms:["Benar", "Salah"], ans:0 },
+            { type:'tf', mod: 'tf', q_ar:"قصر الإفراد يستخدم لرد الاعتقاد بالشركة.", q_ms:"Qasr Al-Ifrad digunakan untuk menolak anggapan perkongsian.", opts_ar:["صح (Benar)", "خطأ (Salah)"], opts_ms:["Benar", "Salah"], ans:0 },
+            { type:'tf', mod: 'tf', q_ar:"في قصر الصفة على الموصوف، نحبس الصفة على موصوف واحد.", q_ms:"Dlm Qasr Sifah 'ala Mawsuf, sifat dibataskan kpd satu subjek.", opts_ar:["صح (Benar)", "خطأ (Salah)"], opts_ms:["Benar", "Salah"], ans:0 },
+            { type:'tf', mod: 'tf', q_ar:"القصر لا يفيد التوكيد أبداً.", q_ms:"Qasr tidak berfungsi untuk penegasan sama sekali.", opts_ar:["صح (Benar)", "خطأ (Salah)"], opts_ms:["Benar", "Salah"], ans:1 },
+            { type:'tf', mod: 'tf', q_ar:"(ما شوقي إلا شاعر) قصر إضافي.", q_ms:"(ما شوقي إلا شاعر) ialah Qasr Idhafi.", opts_ar:["صح (Benar)", "خطأ (Salah)"], opts_ms:["Benar", "Salah"], ans:0 },
+            { type:'tf', mod: 'tf', q_ar:"المقصور هو الشيء المخصص.", q_ms:"Maqsur ialah benda yg dikhususkan.", opts_ar:["صح (Benar)", "خطأ (Salah)"], opts_ms:["Benar", "Salah"], ans:0 },
+            { type:'tf', mod: 'tf', q_ar:"في التقديم، المقصور عليه هو المقدم.", q_ms:"Dalam Taqdim, Maqsur 'Alayh di awal.", opts_ar:["صح (Benar)", "خطأ (Salah)"], opts_ms:["Benar", "Salah"], ans:0 },
+            { type:'tf', mod: 'tf', q_ar:"العطف بـ (بل) يثبت الحكم لما قبلها.", q_ms:"'Atf dgn (Bal) menetapkan hukum utk sblmnya.", opts_ar:["صح (Benar)", "خطأ (Salah)"], opts_ms:["Benar", "Salah"], ans:1 },
+            { type:'tf', mod: 'tf', q_ar:"القصر الاصطلاحي هو التخصيص.", q_ms:"Qasr Istilah bermaksud pengkhususan.", opts_ar:["صح (Benar)", "خطأ (Salah)"], opts_ms:["Benar", "Salah"], ans:0 }
+        ];
+
+        // ==========================================
+        // 2. STATE MANAGEMENT
+        // ==========================================
+        const appState = {
+            lang: 'ar',
+            xp: 0,
+            completed: [],
+            currMod: null,
+            quizQs: [],
+            currQ: 0,
+            examTimer: null,
+            timeRem: 1200
+        };
+
+        // ==========================================
+        // 3. APP CORE LOGIC
+        // ==========================================
+        const app = {
+            init: function() {
+                try {
+                    const saved = localStorage.getItem('qasr_data_v3');
+                    if(saved) {
+                        const parsed = JSON.parse(saved);
+                        appState.xp = parsed.xp || 0;
+                        appState.completed = parsed.completed || [];
+                        appState.lang = parsed.lang || 'ar';
+                        document.getElementById('lang-selector').value = appState.lang;
+                    }
+                } catch(e) { console.log("Storage disabled"); }
+                this.updateUI();
+            },
+
+            saveData: function() {
+                try {
+                    localStorage.setItem('qasr_data_v3', JSON.stringify({
+                        xp: appState.xp, completed: appState.completed, lang: appState.lang
+                    }));
+                } catch(e) {}
+            },
+
+            botGreet: function(force = false) {
+                const msgs = dict[appState.lang].botMsgs;
+                const msg = msgs[Math.floor(Math.random() * msgs.length)];
+                const botBox = document.getElementById('bot-msg');
+                botBox.innerText = msg;
+                botBox.classList.add('show');
+                setTimeout(() => botBox.classList.remove('show'), 4000);
+            },
+
+            updateUI: function() {
+                const l = appState.lang;
+                document.documentElement.lang = l;
+                document.documentElement.dir = l === 'ar' ? 'rtl' : 'ltr';
+                
+                document.getElementById('nav-xp').innerText = `⭐ ${appState.xp} XP`;
+                let lvl = 'level0';
+                if(appState.xp > 300) lvl = 'level3'; else if(appState.xp > 150) lvl = 'level2'; else if(appState.xp > 50) lvl = 'level1';
+                document.getElementById('nav-level').innerText = l === 'ar' ? `المستوى: ${dict.ar[lvl]}` : `Tahap: ${dict.ms[lvl]}`;
+                
+                document.getElementById('dash-title').innerText = dict[l].dashTitle;
+                document.getElementById('dash-desc').innerText = dict[l].dashDesc;
+                document.getElementById('dash-prog-lbl').innerText = dict[l].progLbl;
+                document.getElementById('dash-stats').innerText = dict[l].stats.replace('{c}', appState.completed.length);
+                document.getElementById('dash-prog-bar').style.width = `${(appState.completed.length / 6) * 100}%`;
+                
+                document.getElementById('hub-title').innerText = dict[l].hubTitle;
+                document.getElementById('hub-desc').innerText = dict[l].hubDesc;
+                document.getElementById('hub-btn-1').innerText = dict[l].hub1;
+                document.getElementById('hub-btn-2').innerText = dict[l].hub2;
+                document.getElementById('hub-btn-back').innerText = dict[l].btnHome;
+
+                this.renderModulesGrid();
+            },
+
+            changeLanguage: function(val) {
+                appState.lang = val;
+                this.saveData();
+                this.updateUI();
+                if(appState.currMod && !document.getElementById('module-view').classList.contains('hidden-el')) {
+                    this.openModule(appState.currMod);
+                }
+            },
+
+            switchView: function(viewId) {
+                ['splash-screen', 'dashboard-view', 'module-view', 'training-hub-view', 'quiz-view', 'exam-view', 'report-view'].forEach(id => {
+                    document.getElementById(id).classList.add('hidden-el');
+                });
+                document.getElementById(viewId).classList.remove('hidden-el');
+                
+                if(viewId !== 'splash-screen' && viewId !== 'report-view') {
+                    document.getElementById('navbar').classList.remove('hidden-el');
+                    document.getElementById('main-container').classList.remove('hidden-el');
+                } else if(viewId === 'report-view') {
+                    document.getElementById('navbar').classList.add('hidden-el');
+                    document.getElementById('main-container').classList.remove('hidden-el');
+                }
+                window.scrollTo(0,0);
+            },
+
+            startApp: function() {
+                document.getElementById('splash-screen').style.opacity = '0';
+                setTimeout(() => {
+                    this.switchView('dashboard-view');
+                    setTimeout(() => this.botGreet(), 1000);
+                }, 500);
+            },
+
+            showDashboard: function() {
+                if(appState.examTimer) clearInterval(appState.examTimer);
+                this.switchView('dashboard-view');
+                this.updateUI();
+            },
+
+            renderModulesGrid: function() {
+                const list = document.getElementById('module-list');
+                list.innerHTML = '';
+                modules.forEach(m => {
+                    const done = appState.completed.includes(m.id);
+                    const card = document.createElement('div');
+                    card.className = `interactive-card ${done ? 'module-completed' : ''}`;
+                    card.onclick = () => app.openModule(m.id);
+                    card.innerHTML = `
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="text-3xl">${done ? '✅' : '📘'}</span>
+                            <span class="text-xs px-2 py-1 rounded bg-black/50 ${done ? 'text-green-400' : 'text-cyan'}">${done ? 'مكتمل' : 'متاح'}</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mt-2">${appState.lang === 'ar' ? m.title_ar : m.title_ms}</h3>
+                    `;
+                    list.appendChild(card);
+                });
+            },
+
+            openModule: function(id) {
+                appState.currMod = id;
+                const m = modules.find(x => x.id === id);
+                document.getElementById('mod-title').innerText = appState.lang === 'ar' ? m.title_ar : m.title_ms;
+                document.getElementById('mod-content').innerHTML = appState.lang === 'ar' ? m.content_ar : m.content_ms;
+                
+                document.getElementById('btn-mod-prev').disabled = (id === 1);
+                document.getElementById('btn-mod-prev').style.opacity = (id === 1) ? 0.3 : 1;
+                
+                const btnNext = document.getElementById('btn-mod-next');
+                if(id === modules.length) {
+                    btnNext.innerText = appState.lang === 'ar' ? "إلى التدريب ➔" : "Ke Latihan ➔";
+                    btnNext.classList.add('btn-gold');
+                } else {
+                    btnNext.innerText = appState.lang === 'ar' ? "التالي ➔" : "Seterusnya ➔";
+                    btnNext.classList.remove('btn-gold');
+                }
+
+                if(!appState.completed.includes(id)) {
+                    appState.completed.push(id);
+                    appState.xp += 20;
+                    this.saveData();
+                }
+
+                this.switchView('module-view');
+                document.getElementById('btn-mod-home').innerText = dict[appState.lang].btnHome;
+            },
+
+            navigateModule: function(dir) {
+                if(appState.currMod === modules.length && dir === 1) {
+                    this.openTrainingHub();
+                } else {
+                    const newId = appState.currMod + dir;
+                    if(newId >= 1 && newId <= modules.length) {
+                        this.openModule(newId);
+                    }
+                }
+            },
+
+            openTrainingHub: function() {
+                this.switchView('training-hub-view');
+            },
+
+            // --- PRACTICE HUB (No instant feedback, batch submission) ---
+            startPractice: function(type) {
+                const pool = questions.filter(q => type === 'mcq' ? q.type === 'mcq' : q.type === 'tf');
+                appState.quizQs = pool.map(q => ({...q, uAns: null}));
+                appState.currQ = 0;
+                
+                const l = appState.lang;
+                document.getElementById('btn-exit-quiz').innerText = dict[l].btnExit;
+                
+                this.switchView('quiz-view');
+                this.renderQuizQ();
+            },
+
+            renderQuizQ: function() {
+                const q = appState.quizQs[appState.currQ];
+                const l = appState.lang;
+                document.getElementById('quiz-progress').innerText = dict[l].quizProg.replace('{i}', appState.currQ+1).replace('{t}', appState.quizQs.length);
+                document.getElementById('quiz-q').innerText = l === 'ar' ? q.q_ar : q.q_ms;
+                
+                const optsBox = document.getElementById('quiz-options');
+                optsBox.innerHTML = '';
+                const opts = l === 'ar' ? q.opts_ar : q.opts_ms;
+                
+                if(!opts) return;
+
+                opts.forEach((opt, idx) => {
+                    const btn = document.createElement('button');
+                    btn.className = `option-btn ${q.uAns === idx ? 'selected' : ''}`;
+                    btn.innerText = opt;
+                    btn.onclick = () => {
+                        q.uAns = idx;
+                        this.renderQuizQ();
+                    };
+                    optsBox.appendChild(btn);
+                });
+                
+                document.getElementById('btn-quiz-prev').disabled = appState.currQ === 0;
+                document.getElementById('btn-quiz-prev').style.opacity = appState.currQ === 0 ? 0.3 : 1;
+                
+                const nextBtn = document.getElementById('btn-quiz-next');
+                if(appState.currQ === appState.quizQs.length - 1) {
+                    nextBtn.innerText = dict[l].btnSubmit;
+                    nextBtn.className = "btn-cyber btn-gold px-6 py-2";
+                } else {
+                    nextBtn.innerText = dict[l].btnNext + " ➔";
+                    nextBtn.className = "btn-cyber px-6 py-2";
+                }
+            },
+
+            navQuiz: function(dir) {
+                if(appState.currQ + dir < appState.quizQs.length && appState.currQ + dir >= 0) {
+                    appState.currQ += dir;
+                    this.renderQuizQ();
+                } else if(appState.currQ + dir >= appState.quizQs.length) {
+                    this.submitPractice();
+                }
+            },
+
+            submitPractice: function() {
+                let correct = 0;
+                let details = '';
+                const l = appState.lang;
+                const totalQs = appState.quizQs.length;
+
+                appState.quizQs.forEach((q, i) => {
+                    const isRight = q.uAns === q.ans;
+                    if(isRight) correct++;
+                    
+                    const qTxt = l === 'ar' ? q.q_ar : q.q_ms;
+                    const opts = l === 'ar' ? q.opts_ar : q.opts_ms;
+                    const uAnsTxt = q.uAns !== null && q.uAns !== undefined ? opts[q.uAns] : dict[l].notAns;
+                    const cAnsTxt = opts[q.ans];
+                    
+                    details += `
+                        <div class="mb-4 pb-4 border-b border-gray-200 ${isRight ? '' : 'bg-red-50 p-2 rounded'}">
+                            <strong class="text-gray-800">${i+1}. ${qTxt}</strong><br>
+                            <span class="${isRight?'text-green-600':'text-red-500'} font-bold">${dict[l].ansYours}: ${uAnsTxt}</span><br>
+                            ${!isRight ? `<span class="text-green-600 font-bold">${dict[l].ansCorrect}: ${cAnsTxt}</span>` : ''}
+                        </div>
+                    `;
+                });
+
+                const pct = Math.round((correct/totalQs)*100);
+                const xpGain = correct * 10;
+                appState.xp += xpGain; 
+                this.saveData();
+
+                this.switchView('report-view');
+                document.getElementById('rep-title').innerText = dict[l].repTitle;
+                document.getElementById('rep-score-lbl').innerText = dict[l].repScore;
+                document.getElementById('rep-score').innerText = `${pct}%`;
+                document.getElementById('rep-score').style.color = pct >= 80 ? 'var(--success)' : (pct >= 50 ? 'orange' : 'var(--danger)');
+                document.getElementById('rep-lbl-lvl').innerText = dict[l].lblLvl;
+                document.getElementById('rep-lbl-correct').innerText = dict[l].lblCorrect;
+                document.getElementById('rep-lbl-xp').innerText = dict[l].lblXp;
+                document.getElementById('rep-details-lbl').innerText = dict[l].lblDetails;
+                document.getElementById('rep-correct').innerText = `${correct}/${totalQs}`;
+                document.getElementById('rep-xp-gain').innerText = `+${xpGain} XP`;
+                
+                let lvl = 'level0';
+                if(appState.xp > 300) lvl = 'level3'; else if(appState.xp > 150) lvl = 'level2'; else if(appState.xp > 50) lvl = 'level1';
+                document.getElementById('rep-level').innerText = dict[appState.lang][lvl];
+                document.getElementById('rep-details').innerHTML = details;
+            },
+
+            // --- EXAM ---
+            startExam: function() {
+                appState.quizQs = [...questions].sort(() => 0.5 - Math.random()).slice(0, 15).map(q => ({...q, uAns: null}));
+                appState.currQ = 0;
+                appState.timeRem = 1200;
+                
+                const l = appState.lang;
+                document.getElementById('btn-exam-prev').innerText = dict[l].btnPrev;
+                document.getElementById('btn-exam-next').innerText = dict[l].btnNext;
+                document.getElementById('btn-exam-submit').innerText = dict[l].btnSubmit;
+
+                this.switchView('exam-view');
+                this.renderExamQ();
+                
+                appState.examTimer = setInterval(() => {
+                    appState.timeRem--;
+                    const m = Math.floor(appState.timeRem / 60).toString().padStart(2,'0');
+                    const s = (appState.timeRem % 60).toString().padStart(2,'0');
+                    document.getElementById('exam-timer').innerText = `${m}:${s}`;
+                    if(appState.timeRem <= 0) this.submitExam();
+                }, 1000);
+            },
+
+            renderExamQ: function() {
+                const q = appState.quizQs[appState.currQ];
+                const l = appState.lang;
+                
+                document.getElementById('exam-prog-bar').style.width = `${((appState.currQ + 1) / appState.quizQs.length) * 100}%`;
+                document.getElementById('exam-q').innerText = `${appState.currQ + 1}. ${l === 'ar' ? q.q_ar : q.q_ms}`;
+                
+                const optsBox = document.getElementById('exam-options');
+                optsBox.innerHTML = '';
+                const opts = l === 'ar' ? q.opts_ar : q.opts_ms;
+                
+                if(!opts) return;
+
+                opts.forEach((opt, idx) => {
+                    const btn = document.createElement('button');
+                    btn.className = `option-btn ${q.uAns === idx ? 'selected' : ''}`;
+                    btn.innerText = opt;
+                    btn.onclick = () => {
+                        q.uAns = idx;
+                        this.renderExamQ();
+                    };
+                    optsBox.appendChild(btn);
+                });
+                
+                document.getElementById('btn-exam-prev').disabled = appState.currQ === 0;
+                document.getElementById('btn-exam-prev').style.opacity = appState.currQ === 0 ? 0.3 : 1;
+                document.getElementById('btn-exam-next').disabled = appState.currQ === appState.quizQs.length - 1;
+                document.getElementById('btn-exam-next').style.opacity = appState.currQ === appState.quizQs.length - 1 ? 0.3 : 1;
+            },
+
+            navExam: function(dir) {
+                if(appState.currQ + dir >= 0 && appState.currQ + dir < appState.quizQs.length) {
+                    appState.currQ += dir;
+                    this.renderExamQ();
+                }
+            },
+
+            submitExam: function() {
+                if(appState.examTimer) clearInterval(appState.examTimer);
+                
+                let correct = 0;
+                let details = '';
+                const l = appState.lang;
+                const totalQs = appState.quizQs.length;
+
+                appState.quizQs.forEach((q, i) => {
+                    const isRight = q.uAns === q.ans;
+                    if(isRight) correct++;
+                    
+                    const qTxt = l === 'ar' ? q.q_ar : q.q_ms;
+                    const opts = l === 'ar' ? q.opts_ar : q.opts_ms;
+                    const uAnsTxt = q.uAns !== null && q.uAns !== undefined ? opts[q.uAns] : dict[l].notAns;
+                    const cAnsTxt = opts[q.ans];
+                    
+                    details += `
+                        <div class="mb-4 pb-4 border-b border-gray-200 ${isRight ? '' : 'bg-red-50 p-2 rounded'}">
+                            <strong class="text-gray-800">${i+1}. ${qTxt}</strong><br>
+                            <span class="${isRight?'text-green-600':'text-red-500'} font-bold">${dict[l].ansYours}: ${uAnsTxt}</span><br>
+                            ${!isRight ? `<span class="text-green-600 font-bold">${dict[l].ansCorrect}: ${cAnsTxt}</span>` : ''}
+                        </div>
+                    `;
+                });
+
+                const pct = Math.round((correct/totalQs)*100);
+                const xpGain = correct * 25;
+                appState.xp += xpGain; 
+                this.saveData();
+
+                this.switchView('report-view');
+                document.getElementById('rep-title').innerText = dict[l].repTitle;
+                document.getElementById('rep-score-lbl').innerText = dict[l].repScore;
+                document.getElementById('rep-score').innerText = `${pct}%`;
+                document.getElementById('rep-score').style.color = pct >= 80 ? 'var(--success)' : (pct >= 50 ? 'orange' : 'var(--danger)');
+                document.getElementById('rep-lbl-lvl').innerText = dict[l].lblLvl;
+                document.getElementById('rep-lbl-correct').innerText = dict[l].lblCorrect;
+                document.getElementById('rep-lbl-xp').innerText = dict[l].lblXp;
+                document.getElementById('rep-details-lbl').innerText = dict[l].lblDetails;
+                document.getElementById('rep-correct').innerText = `${correct}/${totalQs}`;
+                document.getElementById('rep-xp-gain').innerText = `+${xpGain} XP`;
+                
+                let lvl = 'level0';
+                if(appState.xp > 300) lvl = 'level3'; else if(appState.xp > 150) lvl = 'level2'; else if(appState.xp > 50) lvl = 'level1';
+                document.getElementById('rep-level').innerText = dict[appState.lang][lvl];
+                document.getElementById('rep-details').innerHTML = details;
+            }
+        };
+
+        window.onload = function() {
+            app.init();
+        };
+    </script>
+</body>
+</html>
